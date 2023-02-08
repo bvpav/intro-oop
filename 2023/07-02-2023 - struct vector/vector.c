@@ -4,38 +4,38 @@
 struct vector_t {
     int capacity;
     int size;
-    int array;
+    int* array;
 };
 
 typedef struct vector_t vector;
 
 void initialize_vector(vector v) {
-    for (int i = 0; i  v-size; i++) {
-        v-array[i] = i  5;
+    for (int i = 0; i < v-size; i++) {
+        v->array[i] = i * 5;
     }
 }
 
 void print_vector(vector v) {
-    for (int i = 0; i  v-size; i++) {
-        printf(%d , v-array[i]);
+    for (int i = 0; i < v-size; i++) {
+        printf("%d" , v->array[i]);
     }
-    printf(n);
+    printf("\n");
 }
 
 void create_vector(vector v, int capacity, int size) {
-    v-size = size;
-    v-capacity = capacity;
-    v-array = (int) malloc(sizeof(int)  size);
+    v->size = size;
+    v->capacity = capacity;
+    v->array = (int) malloc(sizeof(int) * size);
 }
 
 void add(vector v, int value) {
-    if (v-size == v-capacity) {
-        v-capacity = v-capacity  2;
-        v-array = (int) realloc(v-array, v-capacity);
+    if (v->size == v->capacity) {
+        v->capacity = v->capacity * 2;
+        v->array = (int) realloc(v->array, v->capacity);
     }
 
-    v-array[v-size] = value;
-    v-size++;
+    v->array[v->size] = value;
+    v->size++;
 }
 
 int main() {
