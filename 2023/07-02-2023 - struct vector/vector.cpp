@@ -1,13 +1,13 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <iostream>
+#include <stdlib.h>
 
-struct vector_t {
+using namespace std;
+
+struct vector {
     int capacity;
     int size;
     int *array;
 };
-
-typedef struct vector_t vector;
 
 void initialize_vector(vector *v) {
     for (int i = 0; i < v->size; i++) {
@@ -17,9 +17,9 @@ void initialize_vector(vector *v) {
 
 void print_vector(vector *v) {
     for (int i = 0; i < v->size; i++) {
-        printf("%d " , v->array[i]);
+        cout << v->array[i] << ' ';
     }
-    printf("\n");
+    cout << '\n';
 }
 
 void create_vector(vector *v, int capacity, int size) {
